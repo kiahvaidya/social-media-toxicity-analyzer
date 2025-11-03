@@ -43,7 +43,7 @@ Results are displayed on the frontend with labels and confidence scores.
 
 🖥️ Run Locally
 1. Clone the repository
-git clone https://github.com/<kiahvaidya>/social-media-toxicity-analyzer.git
+git clone https://github.com/kiahvaidya/social-media-toxicity-analyzer.git
 cd social-media-toxicity-analyzer
 
 2. Install dependencies
