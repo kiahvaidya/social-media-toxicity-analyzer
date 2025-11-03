@@ -6,48 +6,16 @@ import requests
 import praw
 from googleapiclient.discovery import build
 
-# -------------------- CONSTANT API KEYS -------------------- #
-YOUTUBE_API_KEY = "AIzaSyCDhBg95V-UDoRuChcJwcMyYWnuEUn8-FU"
-TWITTER_BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAOPv4wEAAAAArNVHceIkQlrWkyNdtvhH08nZgRA%3DZ4iqV40sT8N0HD1jxFXdVNoBLmoAh5b7laHtlQuCl5YvP0hoKT"
-REDDIT_CLIENT_ID = "QQmegdOn_n5z_d3OBGqR5Q"
-REDDIT_CLIENT_SECRET = "qeh851_bN1MOE6TPs1uKYuq-16cg8w"
-REDDIT_USER_AGENT = "HateSpeechAnalyzerBot/0.1 by kv-05"
+# -------------------- CONSTANT API KEYS (add your keys here) -------------------- #
+YOUTUBE_API_KEY = " "
+TWITTER_BEARER_TOKEN = " "
+REDDIT_CLIENT_ID = " "
+REDDIT_CLIENT_SECRET = " "
+REDDIT_USER_AGENT = " "
 
 # -------------------- LOAD MODEL -------------------- #
 model = joblib.load("models/model.pkl")
 vectorizer = joblib.load("models/vectorizer.pkl")
-
-# -------------------- RULE-BASED WORD CHECKS -------------------- #
-positive_words = [
-    "thank you", "great", "amazing", "love", "wonderful", "kind", "good job", "helpful", "respect", "brilliant",
-    "excellent", "nice", "awesome", "fantastic", "outstanding", "impressive", "well done", "appreciate", "positive",
-    "smart", "creative", "beautiful", "cheerful", "friendly", "supportive", "strong", "honest", "motivated", "bright",
-    "happy", "enjoy", "like", "talented", "generous", "good", "cool", "fantabulous", "encouraging", "hopeful",
-    "respectful", "determined", "trustworthy", "responsible", "hardworking", "helping", "successful", "nice work",
-    "skillful", "peaceful", "sweet", "charming", "amused", "grateful", "satisfied", "calm", "relaxed", "smile",
-    "confident", "inspiring", "motivational", "awesome job", "incredible", "adorable", "humble", "loyal", "brave",
-    "caring", "courageous", "cheery", "optimistic", "faithful", "lovely", "amazing effort", "wonderful work",
-    "incredible talent", "genius", "positive energy", "respectful attitude", "cooperative", "helping hand", "smiling",
-    "graceful", "polite", "forgiving", "patient", "understanding", "thoughtful", "kind-hearted", "pure", "noble",
-    "genuine", "fair", "great spirit", "excellent attitude", "motivated person", "friendly gesture", "appreciated",
-    "commendable", "encouraged", "peaceful mind", "good-hearted", "hard-working", "bright idea", "lovable"
-]
-
-negative_words = [
-    "idiot", "don't like", "chatak", "awful", "stupid", "hate", "nonsense", "kill", "trash", "dumb", "worst", "fool",
-    "ugly", "lazy", "boring", "annoying", "disgusting", "horrible", "terrible", "bad", "negative", "useless",
-    "dislike", "slow", "fake", "poor", "unhelpful", "rude", "unfair", "selfish", "sad", "frustrating", "angry",
-    "careless", "irresponsible", "horrid", "ignorant", "arrogant", "mean", "cold", "unfriendly", "problematic",
-    "ungrateful", "disrespectful", "worried", "fearful", "unhappy", "dissatisfied", "miserable", "hurt", "offensive",
-    "wrong", "criticize", "fail", "failure", "weak", "hard", "stressful", "tired", "negative vibes", "no sense",
-    "unpleasant", "argument", "jealous", "angry tone", "unwanted", "disappointing", "painful", "unbearable",
-    "difficult", "unnecessary", "negative attitude", "embarrassing", "ashamed", "broke", "hopeless", "disheartened",
-    "depressed", "unworthy", "crying", "unmotivated", "disconnected", "ignored", "forgotten", "pointless", "lost",
-    "fear", "problem", "unwanted opinion", "nervous", "useless idea", "stressed", "doubt", "unsure", "uncomfortable",
-    "angry comment", "critical", "toxic", "unpleasant tone", "hateful", "offended", "bitter", "argumentative",
-    "defensive", "rude remark", "negative thought", "confused","dissapointed","nigga","rubbish"
-]
-
 
 def hybrid_predict(text):
     text_lower = text.lower()
