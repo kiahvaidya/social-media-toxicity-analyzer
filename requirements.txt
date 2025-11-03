@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+requests
+praw
+joblib
+python-dotenv
+pandas
+streamlit
+scikit-learn
